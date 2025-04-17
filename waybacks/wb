@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Check if file is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <file-with-domains>"
+  exit 1
+fi
+
+FILE="$1"
+
+# Check if file exists
+if [ ! -f "$FILE" ]; then
+  echo "File '$FILE' not found!"
+  exit 1
+fi
+
+# Loop through each domain in the file
+while IFS= read -r DOMAIN; do
+  # Skip empty lines
+  [ -z "$DOMAIN" ] && continue
+
+  FILENAME="wb.$DOMAIN.txt"
+  ARCHIVE_URL="https://web.archive.org/cdx/search/cdx?fl=original,mimetype,statuscode&collapse=urlkey&url=*.$DOMAIN"
+
+  echo "[+] Fetching archive for $DOMAIN"
+  curl "$ARCHIVE_URL" -s -o "$FILENAME"
+  COUNT=$(wc -l < "$FILENAME")
+
+  echo "    -> Saved to $FILENAME with count $COUNT"
+
+done < "$FILE"

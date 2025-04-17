@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Check if input file is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <file-with-domains>"
+  exit 1
+fi
+
+FILE="$1"
+
+# Check if the file exists
+if [ ! -f "$FILE" ]; then
+  echo "File '$FILE' not found!"
+  exit 1
+fi
+
+# Loop through each domain
+while IFS= read -r DOMAIN; do
+  [ -z "$DOMAIN" ] && continue
+
+  echo "[+] Gathering subs for $DOMAIN"
+
+  TMPFILE=$(mktemp)
+
+  # Run tools in parallel
+  findomain -t "$DOMAIN" -q >> "$TMPFILE" 2>/dev/null &
+  PID1=$!
+
+  subfinder -d "$DOMAIN" -silent >> "$TMPFILE" 2>/dev/null &
+  PID2=$!
+
+  assetfinder -subs-only "$DOMAIN" >> "$TMPFILE" 2>/dev/null &
+  PID3=$!
+
+  # Wait for all tools to finish
+  wait $PID1
+  wait $PID2
+  wait $PID3
+
+  # Deduplicate and save
+  sort -u "$TMPFILE" > "$DOMAIN.txt"
+  COUNT=$(wc -l < "$DOMAIN.txt")
+
+  echo "    -> Saved to $DOMAIN.txt with count $COUNT"
+
+  rm "$TMPFILE"
+done < "$FILE"

@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# This tool is used fro check Content-Type and Status Code
+
+# Check if a file argument is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 <file_with_endpoints>"
+    exit 1
+fi
+
+# Define the base URL
+base_url="https://www.amazon.in"
+
+# Define the Cookie header
+cookie="ubid-acbin=260-1519358-4843424; x-acbin=\"kXEdL@MPscHUxHwvC2xy5rV2dH1RzawyM@vKrHVu8zmdMO2Owxj3Z26j3?0jamiu\""
+
+# Read the endpoints from the file passed as the first argument
+while read -r endpoint; do
+    # Clean the endpoint string
+    endpoint=$(echo "$endpoint" | tr -d '[:space:]')
+
+    # Form the full URL
+    full_url="$base_url$endpoint"
+    
+    # Send the GET request using curl and capture both the status code and response headers
+    tmp_response=$(curl -s -D - -o /dev/null -w "%{http_code}" -H "Host: www.amazon.in" -H "Cookie: $cookie" "$full_url")
+
+    # Extract the status code from the output
+    status_code="${tmp_response: -3}"
+
+    # Extract the Content-Type (if present) from the response headers
+    content_type=$(echo "$tmp_response" | grep -i "Content-Type:")
+
+    # Check if Content-Type is found and print the output accordingly
+    if [ -n "$content_type" ]; then
+        echo "$full_url -> Status Code: $status_code, $content_type"
+    else
+        echo "$full_url -> Status Code: $status_code, Content-Type: Not Present"
+    fi
+done < "$1"
