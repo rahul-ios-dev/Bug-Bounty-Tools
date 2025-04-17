@@ -1,0 +1,21 @@
+id: html-injection
+
+info:
+  name: HTML Injection Detection - Whitelabel1337 (Direct URL)
+  author: rahulacharya
+  severity: medium
+  description: Detects reflected HTML/SQL error via full URL input
+  tags: html-injection,reflected,test
+
+http:
+  - raw:
+      - |
+        GET {{BaseURL}} HTTP/1.1
+        Host: {{Hostname}}
+        Accept: */*
+
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "<h1>Whitelabel1337</h1>"
