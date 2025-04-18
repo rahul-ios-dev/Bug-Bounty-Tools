@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Check for required arguments
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: $0 <domain> <max_pages>"
+  exit 1
+fi
+
+domain="$1"
+max_pages="$2"
+output_file="alienvault.${domain}.txt"
+> "$output_file"  # Clear the file if it exists
+
+# Loop from page 1 to max_pages
+for ((page=1; page<=max_pages; page++)); do
+  echo "[*] Fetching page $page for domain $domain..."
+  curl -s "https://otx.alienvault.com/api/v1/indicators/domain/${domain}/url_list?limit=500&page=$page" \
+    | jq -r '.url_list[]?.url' >> "$output_file"
+done
+
+echo "[+] Done. Results saved to $output_file"
