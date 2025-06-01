@@ -1,3 +1,4 @@
+admin
 alpha
 alpha1
 beta
@@ -107,6 +108,7 @@ v1beta1
 v1fishfood
 v1gamma
 v1gamma1
+v1main
 v2
 v2alpha
 v2alpha1
