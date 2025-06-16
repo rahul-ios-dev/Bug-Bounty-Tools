@@ -1,0 +1,13 @@
+http://169.254.169.254:80/latest/meta-data/ami-id
+http://169.254.169.254:80/latest/meta-data/hostname
+http://169.254.169.254:80/latest/meta-data/iam/security-credentials/
+http://169.254.169.254:80/latest/meta-data/iam/security-credentials/dummy
+http://169.254.169.254:80/latest/meta-data/iam/security-credentials/ecsInstanceRole
+http://169.254.169.254:80/latest/meta-data/public-keys/
+http://169.254.169.254:80/latest/meta-data/public-keys/0/openssh-key
+http://169.254.169.254:80/latest/meta-data/public-keys/1/openssh-key
+http://169.254.169.254:80/latest/meta-data/public-keys/2/openssh-key
+http://169.254.169.254:80/latest/meta-data/reservation-id
+http://169.254.169.254:80/latest/user-data
+http://169.254.169.254:80/latest/user-data/
+http://localhost:9001/2018-06-01/runtime/invocation/next

