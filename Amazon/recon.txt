@@ -1,0 +1,21 @@
+python3 -m venv path/to/venv
+source path/to/venv/bin/activate
+
+ffuf -w ~/custom_wordlist/final.txt -c -mc 200-299,301,302,307,401,403,429,405,500 -u "http://gamma.emea.ler.amazon.comFUZZ"
+
+python3 dirsearch.py -u "http://gamma.emea.ler.amazon.com" -x 400,404,406
+
+echo "http://gamma.emea.ler.amazon.com/" | nuclei -t ~/nuclei-templates/http
+
+nmap -sV -p 3000,443,5000,5601,7001,80,8000,8080,8081,81,8443,8888,9000,9090 -iL tmp.txt -T5 | tee nmap.txt
+
+
+==> vhost
+ffuf -w ~/Downloads/amazon/amazon.com.txt -H "Host: FUZZ" -u http://cal.amazon.com -mc all -fs 250
+
+
+
+Host header injection
+Open redirect
+Virtual host discovery
+Subdomain misconfig

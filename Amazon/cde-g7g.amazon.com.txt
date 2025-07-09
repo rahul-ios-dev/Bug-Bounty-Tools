@@ -1,0 +1,34 @@
+https://cde-ta-g7g.amazon.com/FionaCDEServiceEngine/FSDownloadContent?type=PDOC&key=PMNQM3STMRM6KMBB5LTDHJKUIMRW44B4&fsn=G090G10555270F1U&device_type=A21RY355YUXQAF&customerId=A3QOXFEMAGOIXE&authPool=Amazon
+https://cde-ta-g7g.amazon.com/FionaCDEServiceEngine/sidecar?countryCode=DE&device_lto=60&type=AUDI
+
+
+
+http://cde-g7g.amazon.com/com
+http://cde-g7g.amazon.com/com/amazon
+http://cde-g7g.amazon.com/com/amazon/aaa
+http://cde-g7g.amazon.com/com/amazon/aztec
+http://cde-g7g.amazon.com/com/amazon/aztec/service
+http://cde-g7g.amazon.com/com/amazon/coral
+http://cde-g7g.amazon.com/com/amazon/coral/service
+http://cde-g7g.amazon.com/com/amazon/digital
+http://cde-g7g.amazon.com/com/amazon/learning
+http://cde-g7g.amazon.com/com/amazon/odin
+http://cde-g7g.amazon.com/com/amazon/rma
+http://cde-g7g.amazon.com/com/amazonaws
+
+
+ <=== insternal server error
+https://cde-ta-g7g.amazon.com/FionaCDEServiceEngine/sidecar?countryCode=DE&device_lto=60&type=AUDI
+https://todo-ta-g7g.amazon.com/FionaTodoListProxy/syncMetaData
+
+
+<annotations version="1.0" timestamp="2022-12-21T07:03:02+0100">
+    <book key="B08M5FQ2CP" type="AUDI" version="23555421" guid="CR!JXYV7SZVQN381CD856CFJXHGHHPM:23555421" format="AAX_44_128"><last_heard action="modify" begin="7727567" timestamp="2022-12-21T07:03:02+0100" /></book>
+</annotations>
+
+
+
+==> Github user
+https://github.com/search?q=owner%3AMbucari%20amazon&type=code
+
+"http://cde-g7g.amazon.com/com"
