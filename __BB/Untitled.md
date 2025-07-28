@@ -53,5 +53,7 @@ and use burp
 
 ==> nuclei
 
-
+==> grep js files
+cat js.har| grep "\"url\"" | cut -d "\"" -f 4 | sort -u |
+cat tmp.txt| nuclei -t ~/nuclei-templates/http/exposures
 ```

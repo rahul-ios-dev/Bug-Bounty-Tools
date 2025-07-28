@@ -1,0 +1,76 @@
+rahulacharya@Rahuls-Mac-mini amazon % ffuf -w ~/custom_wordlist/small_wordlist.txt -mc all -c -u "https://6pm.amazon.com/FUZZ" -fs 270
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : https://6pm.amazon.com/FUZZ
+ :: Wordlist         : FUZZ: /Users/rahulacharya/custom_wordlist/small_wordlist.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: all
+ :: Filter           : Response size: 270
+________________________________________________
+
+../../web.config        [Status: 400, Size: 151, Words: 5, Lines: 8, Duration: 363ms]
+account                 [Status: 404, Size: 431, Words: 32, Lines: 1, Duration: 265ms]
+addresses               [Status: 404, Size: 431, Words: 32, Lines: 1, Duration: 274ms]
+ap                      [Status: 404, Size: 83732, Words: 2071, Lines: 380, Duration: 345ms]
+favicon.ico             [Status: 200, Size: 1150, Words: 5, Lines: 13, Duration: 255ms]
+login                   [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 335ms]
+logout                  [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 297ms]
+orders                  [Status: 404, Size: 431, Words: 32, Lines: 1, Duration: 247ms]
+payments                [Status: 404, Size: 431, Words: 32, Lines: 1, Duration: 299ms]
+ping                    [Status: 200, Size: 0, Words: 1, Lines: 1, Duration: 266ms]
+pixel                   [Status: 503, Size: 521, Words: 21, Lines: 14, Duration: 265ms]
+register                [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 294ms]
+subscriptions           [Status: 404, Size: 431, Words: 32, Lines: 1, Duration: 268ms]
+zap                     [Status: 404, Size: 796, Words: 31, Lines: 1, Duration: 327ms]
+
+
+
+(venv) rahulacharya@Rahuls-Mac-mini dirsearch % python3 dirsearch.py -u "https://6pm.amazon.com"     
+
+  _|. _ _  _  _  _ _|_    v0.4.3
+ (_||| _) (/_(_|| (_| )
+
+Extensions: php, asp, aspx, jsp, html, htm | HTTP method: GET | Threads: 25 | Wordlist size: 12266
+
+Target: https://6pm.amazon.com/
+
+[20:40:20] Scanning: 
+[20:44:21] 404 -   431B - /account                                           
+[20:44:25] 404 -   431B - /account/login.aspx                                
+[20:44:25] 404 -   431B - /account/login.jsp                                 
+[20:44:25] 404 -   431B - /account/login.asp
+[20:44:25] 404 -   431B - /account/login.htm
+[20:44:25] 404 -   431B - /account/login.rb
+[20:44:25] 404 -   431B - /account/login.py
+[20:44:26] 404 -   431B - /account/logon                                     
+[20:44:26] 404 -   431B - /account/login.shtml
+[20:44:26] 404 -   431B - /account/signin                                    
+[20:44:27] 404 -   431B - /account/                                          
+[20:44:27] 404 -   431B - /account/login
+[20:44:27] 404 -   431B - /account/login.php
+[20:44:34] 404 -   431B - /account/login.html                                
+[20:44:47] 404 -   431B - /addresses                                         
+[20:51:01] 301 -   250B - /download/history.csv  ->  http://6pm.amazon.com/download/history.csv
+[20:51:01] 301 -   239B - /download/  ->  http://6pm.amazon.com/download/     
+[20:51:01] 301 -   248B - /download/users.csv  ->  http://6pm.amazon.com/download/users.csv
+[20:51:08] 200 -    1KB - /favicon.ico                                        
+[20:51:34] 302 -     0B - /login  ->  https://6pm.amazon.com/error/404        
+[20:51:36] 302 -     0B - /logout  ->  https://6pm.amazon.com/error/404       
+[20:51:49] 404 -   431B - /orders                                             
+[20:51:50] 404 -   431B - /payments                                           
+[20:51:55] 200 -     0B - /ping                                               
+[20:51:55] 503 -   521B - /pixel                                              
+[20:52:02] 302 -     0B - /register  ->  https://6pm.amazon.com/error/404  
