@@ -1,0 +1,35 @@
+id: put-method-enabled-custom
+
+info:
+  name: PUT Method Enabled on Given Paths
+  author: Rahul
+  severity: high
+  description: Checks if HTTP PUT is enabled on the specified paths.
+  reference:
+    - https://portswigger.net/kb/issues/00100900_http-put-method-is-enabled
+  metadata:
+    max-request: 2
+  tags: injection,misconfig,intrusive
+
+http:
+  - raw:
+      - |
+        PUT {{BaseURL}}{{path}}/test-{{randstr}}.txt HTTP/1.1
+        Host: {{Hostname}}
+        Content-Type: text/plain
+
+        {{randstr}}
+      - |
+        GET {{BaseURL}}{{path}}/test-{{randstr}}.txt HTTP/1.1
+        Host: {{Hostname}}
+        Content-Type: text/plain
+
+    payloads:
+      path: paths.txt
+
+    stop-at-first-match: true
+
+    matchers:
+      - type: dsl
+        dsl:
+          - 'contains(body_2, "{{randstr}}")'

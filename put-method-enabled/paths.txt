@@ -1,0 +1,17 @@
+/vendor
+/vendor/bin
+/vendor/composer
+/vendor/doctrine
+/vendor/doctrine/instantiator
+/vendor/doctrine/instantiator/docs
+/vendor/doctrine/instantiator/docs/en
+/vendor/doctrine/instantiator/src
+/vendor/doctrine/instantiator/src/Doctrine
+/vendor/doctrine/instantiator/src/Doctrine/Instantiator
+/vendor/doctrine/instantiator/src/Doctrine/Instantiator/Exception
+/vendor/guzzlehttp/guzzle/src/Cookie
+/vendor/guzzlehttp/guzzle/src
+/vendor/guzzlehttp/guzzle
+/vendor/guzzlehttp
+/vendor/guzzlehttp/guzzle/src/Exception
+/vendor/guzzlehttp/guzzle/src/Handler
